@@ -16,6 +16,7 @@
 package io.atomix.protocols.raft;
 
 import com.google.common.collect.Sets;
+import edu.uw.cse.testbayes.runner.*;
 import io.atomix.cluster.ClusterMembershipService;
 import io.atomix.cluster.MemberId;
 import io.atomix.primitive.AbstractAsyncPrimitiveProxy;
@@ -63,6 +64,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.IOException;
@@ -98,6 +100,7 @@ import static org.mockito.Mockito.when;
 /**
  * Raft test.
  */
+@RunWith(RandomIndividualClassRunner.class)
 public class RaftTest extends ConcurrentTestCase {
   private static final Serializer storageSerializer = Serializer.using(KryoNamespace.builder()
       .register(CloseSessionEntry.class)
